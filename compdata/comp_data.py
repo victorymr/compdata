@@ -149,7 +149,7 @@ class Market:
     risk_premiums_US_url = 'histimpl.html'
     country_tax_rates_url = 'countrytaxrate.html'
     risk_measures_url = 'mktcaprisk.html'
-    risk_premiums_url = 'cntryprem.html' 
+    risk_premiums_url = 'ctryprem.html' 
     
     # Capital structure
     macro_url = 'macro.html'
