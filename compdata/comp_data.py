@@ -93,8 +93,6 @@ def get_table(url, columns_position = 0, index = 'industry name'):
         text = text.replace('   ', '')
         columns.append(text.lower())
     
-    pdb.set_trace()
-
     table_df = pd.DataFrame(columns = columns)
     rows = rows[columns_position + 1:]
     for row in rows:
