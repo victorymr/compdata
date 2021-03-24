@@ -149,7 +149,8 @@ class Market:
     risk_premiums_US_url = 'histimpl.html'
     country_tax_rates_url = 'countrytaxrate.html'
     risk_measures_url = 'mktcaprisk.html'
- 
+    risk_premiums_url = 'cntryprem.html' 
+    
     # Capital structure
     macro_url = 'macro.html'
 
@@ -169,7 +170,12 @@ class Market:
         url = self.main_url + self.risk_premiums_US_url
         risk_premiums_US = get_table(url, index = 'year')
         return risk_premiums_US
-
+    
+    def get_risk_premiums(self):
+        url = self.main_url + self.risk_premiums_url
+        risk_premiums = get_table(url, index = 'country')
+        return risk_premiums
+    
     def get_country_tax_rates(self):
         url = self.main_url + self.country_tax_rates_url
         country_tax_rates = get_table(url, index = 'country')
