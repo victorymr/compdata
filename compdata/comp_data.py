@@ -269,6 +269,9 @@ class Industry:
 
     # Option pricing models
     standard_deviation_url = 'optvar.html'
+    
+    #cash ratios
+    cash_url = 'cash.html'
 
     def __init__(self, industry_name):
         self.industry = industry_name.lower()
@@ -382,3 +385,8 @@ class Industry:
         url = self.main_url + self.standard_deviation_url
         standard_deviation = get_table(url).loc[self.industry]
         return standard_deviation
+    
+    def get_cash(self):
+        url = self.main_url + self.cash_url
+        cash = get_table(url).loc[self.industry]
+        return cash
