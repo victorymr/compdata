@@ -113,7 +113,10 @@ def get_table(url, columns_position = 0, index = 'industry name'):
             text = text.replace('    ', '')
             text = text.replace('   ', '')
             lst.append(text.lower())
-        table_df.loc[len(table_df)] = lst
+        try:
+            table_df.loc[len(table_df)] = lst
+        except:
+            print("Skipping row there is an issue with this row - probably in the source data")
     table_df = table_df.iloc[columns_position + 1:]
     table_df = table_df.set_index(index.lower())
     return table_df
@@ -388,8 +391,8 @@ class Industry:
     
     def get_cash(self):
         url = self.main_url + self.cash_url
-        pdb.set_trace()
+        #pdb.set_trace()
         table_df = get_table(url)
         table_df = table_df.set_index('industryname',inplace=True)
-        cash = table_df.filter(regex='soft',axis=0)
+        cash = table_df.loc[self.industry]
         return cash
