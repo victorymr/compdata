@@ -388,5 +388,6 @@ class Industry:
     
     def get_cash(self):
         url = self.main_url + self.cash_url
+        pdb.set_trace()
         cash = get_table(url).loc[self.industry]
         return cash
