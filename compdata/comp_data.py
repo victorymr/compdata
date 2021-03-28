@@ -117,6 +117,7 @@ def get_table(url, columns_position = 0, index = 'industry name'):
             table_df.loc[len(table_df)] = lst
         except:
             print("Skipping row there is an issue with this row - probably in the source data")
+            print(lst)
     table_df = table_df.iloc[columns_position + 1:]
     table_df = table_df.set_index(index.lower())
     return table_df
