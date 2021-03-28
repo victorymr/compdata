@@ -392,7 +392,7 @@ class Industry:
     def get_cash(self):
         url = self.main_url + self.cash_url
         #pdb.set_trace()
-        table_df = get_table(url)
-        table_df = table_df.set_index('industryname',inplace=True)
+        table_df = get_table(url,index='industryname')
+        #table_df = table_df.set_index('industryname',inplace=True)
         cash = table_df.loc[self.industry]
         return cash
