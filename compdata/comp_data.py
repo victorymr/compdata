@@ -395,6 +395,7 @@ class Industry:
         #pdb.set_trace()
         table_df = get_table(url,index='industryname')
         #table_df = table_df.set_index('industryname',inplace=True)
-        pdb.set_trace()
-        cash = table_df.loc[self.industry]
+        #pdb.set_trace()
+        #cash = table_df.loc[self.industry]
+        cash = table_df.loc[table_df.index.str.replace(" ",'')==self.industry.replace(" ",'')]
         return cash
